@@ -1,1 +1,17 @@
+body, h1, p, ul, ol, li, img {
+  margin: 0;
+  padding: 0;
+}
 
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

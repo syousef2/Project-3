@@ -51,8 +51,25 @@ section {
   padding: 20px;
   border-radius: 15px;
   border: 2px solid #333;
-}
-
+} 
+@media (min-width: 768px){
+  .container{
+      width: 90%;
+  }
+  .header{
+    padding: 30px;
+  }
+  .navbar{
+    padding: 15px;
+  }
+    .footer{
+      padding:30px;
+    }
+    .content{
+      padding:30px;
+    }
+      
+  } 
     #wrapper {
 			width: 850px;
 			height: 600px;

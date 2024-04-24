@@ -5,7 +5,6 @@ function init(){
 		center: myLocation,
 		zoom: 18,
 		mapTypeId: google.maps.MapTypeId.SATELLITE,
-    mapTypeControl: true,
 		mapTypeControlOptions: {
 			position: google.maps.ControlPosition.BOTTOM_CENTER
 		}
@@ -56,4 +55,10 @@ function init(){
         });
         myMap.fitBounds(bounds);
   	});
+    
+    google.maps.event.addListener(marker, 'mouseover', function() {
+    	infowindow.open(myMap, marker);
+  	});
+}
+    google.maps.event.addDomListener(window, 'load', init);
 

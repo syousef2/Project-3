@@ -31,7 +31,7 @@ function init(){
   streetViewPanorama.setPosition(myLocation);
   streetViewPanorama.setPov([
   heading: 256,
-  pitch; 0
+  pitch: 0
   });
  
    var searchBox = new google.maps.places.SearchBox(document.getElementById('search-box'));
@@ -41,10 +41,19 @@ function init(){
    var places = searchBox.getPlaces();
    if (places.length == 0) {
        return;
-
+       }
+       var bounds = new google.maps.LatLngBounds();
+        places.forEach(function(place) {
+            if (!place.geometry) {
+                console.log("Returned place contains no geometry");
+                return;
+            }
+            if (place.geometry.viewport) {
+                bounds.union(place.geometry.viewport);
+            } else {
+                bounds.extend(place.geometry.location);
+            }
+        });
+        myMap.fitBounds(bounds);
   	});
-    drawingManager.setMap(myMap);
 
-}
-
-google.maps.event.addDomListener(window, 'load', init);

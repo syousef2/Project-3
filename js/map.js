@@ -29,7 +29,7 @@ function init(){
   var streetViewService = new google.maps.StreetViewService();
   var streetViewPanorama = myMap.getStreetView();
   streetViewPanorama.setPosition(myLocation);
-  streetViewPanorama.setPov([
+  streetViewPanorama.setPov({
   heading: 256,
   pitch: 0
   });
@@ -37,7 +37,7 @@ function init(){
    var searchBox = new google.maps.places.SearchBox(document.getElementById('search-box'));
     myMap.controls[google.maps.ControlPosition.TOP_LEFT].push(document.getElementById('search-box'));
 
-	google.maps.event.addListener(searchbox, 'places_changed', function() {
+	google.maps.event.addListener(searchBox, 'places_changed', function() {
    var places = searchBox.getPlaces();
    if (places.length == 0) {
        return;
